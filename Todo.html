@@ -3,6 +3,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
+<script>
+var count = 0;
+
+function addItem(list, itemText){
+    count = count + 1;2
+    var item = document.createElement("li");
+    item.innerText = itemText;
+    item.id = "item_"+count;
+    item.addEventListener('click', function(e){
+        var t = e.target;
+        t.parentNode.removeChild(t);
+    });
+    list.appendChild(item);
+}
+
+var addbutton = document.getElementById("add_button");
+addbutton.onclick = function() {
+    var itemText = document.getElementById("todo_item").value;
+    addItem(document.getElementById("todo_list"), itemText);
+};
+</script>
+
 </head>
 
 <body>
